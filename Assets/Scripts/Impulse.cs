@@ -9,8 +9,7 @@ public class Impulse : MonoBehaviour {
     LookAt m_lookAt;
     PlanetDetector gravitationalZone;
     bool impulse = false;
-    
-    ushort initControl = 0;
+    public ushort initControl = 0;
 
     private void Awake() {
         m_lookAt = GetComponent<LookAt>();
