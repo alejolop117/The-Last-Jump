@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Impulse : MonoBehaviour {
-    [SerializeField] float speed;
+    [SerializeField] float speed = 5f;
+    [SerializeField] float downSpeed = 1.5f;
     Vector3 velocity;
     Vector3 acceleration;
     LookAt m_lookAt;
     PlanetDetector gravitationalZone;
     bool impulse = false;
     public ushort initControl = 0;
+    Vector3 position = new Vector3();
+    float timer = 0f;
 
     private void Awake() {
         m_lookAt = GetComponent<LookAt>();
         gravitationalZone = GetComponent<PlanetDetector>();
+    }
+
+    private void Start() {
+        position = transform.position;
+        position.z = -1;
     }
 
     void Update() {
@@ -23,7 +31,7 @@ public class Impulse : MonoBehaviour {
         if (impulse) {
             
             UpdateMovementVector();
-            if (gravitationalZone.planet1 != null) {
+            if (gravitationalZone.planet1 != null && !gravitationalZone.arrived) {
                 acceleration = gravitationalZone.planet1.transform.position - transform.position;
                 acceleration.Normalize();
                 acceleration *= gravitationalZone.planet1.acceleration;
@@ -35,9 +43,25 @@ public class Impulse : MonoBehaviour {
         }
     }
 
+    /*private void FixedUpdate() {
+        if (transform.position.z != -1) {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        }
+    }*/
+
     private void UpdateMovementVector() {
 
+        //if (gravitationalZone.arrived) velocity = gravitationalZone.planet1.transform.position - transform.position;
         //velocity = target - transform.position;
+        if (gravitationalZone.arrived) {
+            //velocity -= velocity.normalized * downSpeed;
+            if (timer <= downSpeed) {
+                timer += Time.deltaTime;
+                speed = downSpeed - timer;
+            }
+            else speed = 0;
+            
+        }
         velocity.Normalize();
         velocity *= speed;
         acceleration *= 0;
