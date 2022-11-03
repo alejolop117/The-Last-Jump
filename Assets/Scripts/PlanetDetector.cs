@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlanetDetector : MonoBehaviour
 {
+    [SerializeField] Win canvasManagerWin;
+    [SerializeField] BlackHole canvasManagerLose;
     public Planet1 planet1;
     public bool arrived = false;
 
@@ -12,7 +14,10 @@ public class PlanetDetector : MonoBehaviour
             planet1 = collision.GetComponent<Planet1>();
         }
 
-        if (collision.CompareTag("Finish")) arrived = true;
+        if (collision.CompareTag("Finish")) {
+           arrived = true;
+            canvasManagerWin.HeIsAWinner();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
@@ -22,6 +27,7 @@ public class PlanetDetector : MonoBehaviour
 
         if (collision.CompareTag("BlackHole")) {
             planet1 = collision.GetComponent<Planet1>();
+            canvasManagerLose.IsInABlackHole();
         }
     }
 }

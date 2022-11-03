@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class PauseMenuManager : MonoBehaviour
         gameIsPaused = false;
         playerImpulse.enabled = true;
         if(playerImpulse.initControl == 0) playerLook.enabled = true;
+    }
+
+    public void Restart() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("LevelOne");
     }
     public void QuitGame() {
         Application.Quit();
