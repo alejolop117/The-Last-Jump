@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 35814558}
   - component: {fileID: 35814557}
   - component: {fileID: 35814556}
+  - component: {fileID: 35814560}
   m_Layer: 0
   m_Name: BlackHole (1)
   m_TagString: BlackHole
@@ -425,6 +426,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &35814560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35814554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73738ea5eea5804985384a9c5eae375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 656763790}
+  timeToLose: 4
 --- !u!1 &69396490
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +683,7 @@ GameObject:
   - component: {fileID: 198313784}
   - component: {fileID: 198313783}
   - component: {fileID: 198313782}
+  - component: {fileID: 198313786}
   m_Layer: 0
   m_Name: BlackHole
   m_TagString: BlackHole
@@ -790,6 +806,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &198313786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198313780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73738ea5eea5804985384a9c5eae375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 656763790}
+  timeToLose: 4
 --- !u!1 &206574978
 GameObject:
   m_ObjectHideFlags: 0
@@ -3128,7 +3158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 656763790}
-  timeToLose: 10
+  timeToLose: 5
 --- !u!1 &672591903
 GameObject:
   m_ObjectHideFlags: 0

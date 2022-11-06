@@ -18,16 +18,15 @@ public class PlanetDetector : MonoBehaviour
            arrived = true;
             canvasManagerWin.HeIsAWinner();
         }
+
+        if (collision.CompareTag("BlackHole")) {
+            canvasManagerLose.IsInABlackHole();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.CompareTag("Planet")) {
             planet1 = null;
-        }
-
-        if (collision.CompareTag("BlackHole")) {
-            planet1 = collision.GetComponent<Planet1>();
-            canvasManagerLose.IsInABlackHole();
         }
     }
 }
